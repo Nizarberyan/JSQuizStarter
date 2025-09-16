@@ -36,7 +36,7 @@ const questions = [
     },
     {
         question: "Which symbol is used for single-line comments in JavaScript?",
-        options: ["//", "#", `<! -- -- >`],
+        options: ["//", "#", "&lt;!-- --&gt;"],
         answer: 0
     },
     {
