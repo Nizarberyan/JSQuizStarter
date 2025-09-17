@@ -262,7 +262,7 @@ button {
 
 /* Feedback coloring */
 .options label.correct {
-    background-color: #0B1220FF; /* light green */
+    background-color: #0B1220FF;
     border: 1px solid #2e7d32;
 }
 
@@ -270,19 +270,7 @@ button {
     background-color: #0B1220FF; /* light red */
     border: 1px solid #c62828;
 }
-/* Enhanced theme overrides to improve page styling */
-:root {
-    --bg: #f6f8fb;
-    --card: #ffffff;
-    --text: #222;
-    --muted: #6b7280;
-    --primary: #2563eb;
-    --primary-600: #1d4ed8;
-    --success: #16a34a;
-    --danger: #dc2626;
-    --ring: rgba(37, 99, 235, 0.35);
-    --shadow: 0 10px 25px rgba(0,0,0,0.08), 0 6px 10px rgba(0,0,0,0.06);
-}
+
 
 /* Global */
 html { scroll-behavior: smooth; }
@@ -675,8 +663,7 @@ button {
     background-color: #0B1220FF; /* light red */
     border: 1px solid #c62828;
 }
-/* Enhanced theme overrides to improve page styling */
-::root {
+/* Enhanced theme overrides to improve page styling */  :root {
     --bg: #f6f8fb;
     --card: #ffffff;
     --text: #222;
@@ -773,7 +760,7 @@ main { padding: 1.5rem; }
 .progress-bar {
     height: 100%;
     background: linear-gradient(90deg, #22c55e, #16a34a);
-    width: 0%;
+    width: 0;
     transition: width 0.6s ease;
 }
 .percent-text {
