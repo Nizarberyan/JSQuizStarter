@@ -16,7 +16,6 @@
     --hover: #1e293b;
 }
 
-/* Global Styles */
 html {
     scroll-behavior: smooth;
 }
@@ -122,6 +121,20 @@ main {
     margin: 0 auto 2.5rem;
     position: relative;
     z-index: 1;
+}
+
+
+.quiz-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 1rem;
+}
+
+.quiz-list .start-btn {
+    width: 100%;
+    max-width: 320px;
 }
 
 
