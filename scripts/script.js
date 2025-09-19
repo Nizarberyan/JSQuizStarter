@@ -327,7 +327,7 @@ function showQuestion(index) {
     nextBtn.textContent = index === lastIndex ? "Validate" : "Next";
 }
 
-function goToNextQuestion(auto = false) {
+function goToNextQuestion() {
     if (currentQuestion === getQuestions().length - 1) {
         calculateResults();
     } else {
