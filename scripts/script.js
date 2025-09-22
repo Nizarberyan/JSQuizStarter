@@ -392,11 +392,12 @@ nextBtn.addEventListener('click', () => {
 
     const optionsDiv = document.querySelector('#quiz-container .options');
     if (optionsDiv) {
-        const correctSet = new Set(normalizeAnswer(getQuestions()[currentQuestion].answer));
+        const correct = normalizeAnswer(getQuestions()[currentQuestion].answer);
+
         const labels = Array.from(optionsDiv.querySelectorAll('label'));
 
         labels.forEach((label, idx) => {
-            label.classList.add(correctSet.has(idx) ? 'correct' : 'incorrect');
+            label.classList.add(correct.includes(idx) ? 'correct' : 'incorrect');
             const input = label.querySelector('input[type="checkbox"]');
             if (input) input.disabled = true;
         });
@@ -413,7 +414,6 @@ restartBtn.addEventListener('click', resetQuiz);
 reloadBtn.addEventListener('click', resetQuiz);
 
 function init() {
-    // Show the selected quiz title in the header/subtitle
     const subtitle = document.querySelector('header p');
     if (subtitle) subtitle.textContent = `Theme: ${getActiveQuiz().title}`;
     document.title = `JS Quiz - ${getActiveQuiz().title}`;
@@ -431,7 +431,7 @@ function init() {
             const elapsed = saved.completedElapsed != null
                 ? saved.completedElapsed
                 : (startTime ? Math.floor((Date.now() - startTime) / 1000) : 0);
-            // Recompute score for safety
+
             const qs = getQuestions();
             score = qs.reduce((acc, q, i) => {
                 return acc + (isCorrectAnswer(userAnswers[i], q.answer) ? 1 : 0);
