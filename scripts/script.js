@@ -1,181 +1,8 @@
-const quizzes = [
-    {
-        id: 'web-dev-fundamentals',
-        title: 'Web Dev Fundamentals',
-        questions: [
-            {
-                question: "What does HTML stand for?",
-                options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"],
-                answer: 0
-            },
-            {
-                question: "Which of the following are used for styling web pages?",
-                options: ["HTML", "CSS", "JavaScript", "Sass"],
-                answer: [1, 3]
-            },
-            {
-                question: "Inside which HTML element do we put JavaScript?",
-                options: ["&lt;script&gt;", "&lt;js&gt;", "&lt;javascript&gt;"],
-                answer: 0
-            },
-            {
-                question: "Which company originally developed JavaScript?",
-                options: ["Netscape", "Microsoft", "Sun Microsystems", "Oracle"],
-                answer: 0
-            },
-            {
-                question: "What does CSS stand for?",
-                options: ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style System"],
-                answer: 0
-            },
-            {
-                question: "Which HTML elements can contain metadata? (Select all that apply)",
-                options: ["&lt;head&gt;", "&lt;meta&gt;", "&lt;title&gt;", "&lt;body&gt;"],
-                answer: [0, 1, 2]
-            },
-            {
-                question: "Which is NOT a JavaScript data type?",
-                options: ["Number", "Boolean", "Character", "Symbol"],
-                answer: 2
-            },
-            {
-                question: "Which symbols start a single-line comment in JavaScript?",
-                options: ["//", "#", "&lt;!-- --&gt;", "/*"],
-                answer: 0
-            },
-            {
-                question: "Which methods convert a JSON string to a JavaScript object? (Select all that apply)",
-                options: ["JSON.parse()", "JSON.stringify()", "eval()", "Object.fromJSON()"],
-                answer: [0, 2]
-            },
-            {
-                question: "How do you print 'Hello' to the browser console?",
-                options: ["print('Hello')", "console.log('Hello')", "echo('Hello')"],
-                answer: 1
-            }
-        ]
-    },
-    {
-        id: 'javascript-basics',
-        title: 'JavaScript Basics',
-        questions: [
-            {
-                question: "Which keyword creates a block-scoped variable?",
-                options: ["var", "let", "const", "static"],
-                answer: [1, 2]
-            },
-            {
-                question: "What is the result of typeof null?",
-                options: ["null", "object", "undefined", "number"],
-                answer: 1
-            },
-            {
-                question: "Which method adds an element to the end of an array?",
-                options: ["push", "pop", "shift", "unshift"],
-                answer: 0
-            },
-            {
-                question: "Which comparison is strict equality?",
-                options: ["==", "=", "===", "!=="],
-                answer: 2
-            },
-            {
-                question: "Select all truthy values: (Select all that apply)",
-                options: ["0", "'0'", "[]", "''"],
-                answer: [1, 2]
-            },
-            {
-                question: "Which array method returns a new array with elements that pass a test?",
-                options: ["map", "filter", "reduce", "forEach"],
-                answer: 1
-            },
-            {
-                question: "What does the spread operator (...) do in arrays?",
-                options: ["Mutates the array", "Copies/expands iterable elements", "Joins arrays in place", "Sorts elements"],
-                answer: 1
-            },
-            {
-                question: "Which values are falsy in JavaScript? (Select all that apply)",
-                options: ["0", "'false'", "null", "NaN", "[]"],
-                answer: [0, 2, 3]
-            },
-            {
-                question: "What does JSON.stringify do?",
-                options: ["Parses JSON to object", "Converts a value to a JSON string", "Validates JSON", "Downloads JSON"],
-                answer: 1
-            },
-            {
-                question: "What keyword is used to handle errors in a block of code?",
-                options: ["catch", "throw", "try", "finally"],
-                answer: [0, 2, 3]
-            }
-        ]
-    },
-    {
-        id: 'css-essentials',
-        title: 'CSS Essentials',
-        questions: [
-            {
-                question: "Which property changes text color?",
-                options: ["font-color", "text-color", "color", "foreground"],
-                answer: 2
-            },
-            {
-                question: "How do you select an element with id=main?",
-                options: [".main", "#main", "main", "*[main]"],
-                answer: 1
-            },
-            {
-                question: "Which units are relative? (Select all that apply)",
-                options: ["px", "em", "rem", "%"],
-                answer: [1, 2, 3]
-            },
-            {
-                question: "Which property creates space outside the border?",
-                options: ["padding", "margin", "gap", "outline"],
-                answer: 1
-            },
-            {
-                question: "Which rule imports another CSS file?",
-                options: ["@import", "@use", "@link", "@require"],
-                answer: 0
-            },
-            {
-                question: "What does the box-sizing: border-box do?",
-                options: ["Adds a border by default", "Includes padding and border in element width/height", "Excludes margins from layout", "Resets box model"],
-                answer: 1
-            },
-            {
-                question: "Which properties control flex container direction and wrapping? (Select all that apply)",
-                options: ["flex-direction", "flex-flow", "flex-basis", "flex-wrap"],
-                answer: [0, 1, 3]
-            },
-            {
-                question: "How do you center a block element horizontally?",
-                options: ["margin-left: auto; margin-right: auto;", "text-align: center;", "justify-content: center;", "align-items: center;"],
-                answer: 0
-            },
-            {
-                question: "Which selector has the highest specificity?",
-                options: ["Element", "Class", "ID", "Universal"],
-                answer: 2
-            },
-            {
-                question: "Which media query targets screens up to 600px wide?",
-                options: ["@media (min-width: 600px)", "@media screen and (max-width: 600px)", "@media only mobile", "@media width <= 600"],
-                answer: 1
-            }
-        ]
-    }
-];
 
+let quizzes = [];
+let userNickname = '';
 
-let currentQuizIndex = (() => {
-    const params = new URLSearchParams(window.location.search);
-    const idx = parseInt(params.get('quiz'));
-    if (!Number.isFinite(idx) || idx < 0 || idx >= quizzes.length) return 0;
-    return idx;
-})();
+let currentQuizIndex = 0;
 
 const quizContainer = document.getElementById('quiz-container');
 const nextBtn = document.getElementById('next-btn');
@@ -199,7 +26,8 @@ let questionTimeLeft = 15;
 
 const STORAGE_KEY_BASE = 'quizStateV2';
 function getStorageKey() {
-    return `${STORAGE_KEY_BASE}:${currentQuizIndex}`;
+    const id = quizzes && quizzes[currentQuizIndex] ? quizzes[currentQuizIndex].id : `idx-${currentQuizIndex}`;
+    return `${STORAGE_KEY_BASE}:${id}`;
 }
 
 function saveState() {
@@ -347,7 +175,7 @@ function calculateResults() {
 
     const elapsed = Math.floor((Date.now() - startTime) / 1000);
 
-    scoreEl.textContent = `${score} / ${qs.length}`;
+    scoreEl.textContent = `${userNickname}: ${score} / ${qs.length}`;
     feedbackEl.textContent = score >= Math.ceil(qs.length * 0.7) ? "Excellent!" : score >= Math.ceil(qs.length * 0.5) ? "Can do better" : "Keep practicing!";
 
     resultsDiv.classList.remove('hidden');
@@ -413,9 +241,47 @@ nextBtn.addEventListener('click', () => {
 restartBtn.addEventListener('click', resetQuiz);
 reloadBtn.addEventListener('click', resetQuiz);
 
-function init() {
-    const subtitle = document.querySelector('header p');
-    if (subtitle) subtitle.textContent = `Theme: ${getActiveQuiz().title}`;
+async function loadQuiz(topicId) {
+    try {
+        // Load manifest to get topic metadata
+        const manifestResp = await fetch('scripts/data/topics/manifest.json');
+        let topicTitle = topicId;
+        if (manifestResp.ok) {
+            const manifest = await manifestResp.json();
+            const topic = manifest.topics?.find(t => t.id === topicId);
+            if (topic) topicTitle = topic.title || topicId;
+        }
+        
+        // Load only the specific topic file
+        const resp = await fetch(`scripts/data/topics/${topicId}.json`);
+        if (!resp.ok) throw new Error(`Topic ${topicId} not found`);
+        const questions = await resp.json();
+        return { id: topicId, title: topicTitle, questions };
+    } catch (e) {
+        console.error('Failed to load quiz:', e);
+        return { id: topicId, title: topicId, questions: [] };
+    }
+}
+
+async function init() {
+    const params = new URLSearchParams(window.location.search);
+    userNickname = params.get('nickname') || '';
+    
+    // Redirect to index if no nickname provided
+    if (!userNickname) {
+        window.location.href = 'index.html';
+        return;
+    }
+    
+    const topic = params.get('topic') || 'html';
+    const quiz = await loadQuiz(topic);
+    quizzes = [quiz];
+    currentQuizIndex = 0;
+
+    const welcomeMsg = document.getElementById('welcome-message');
+    if (welcomeMsg) {
+        welcomeMsg.textContent = `Welcome ${userNickname}! Theme: ${getActiveQuiz().title}`;
+    }
     document.title = `JS Quiz - ${getActiveQuiz().title}`;
 
     const saved = loadState();
@@ -437,7 +303,7 @@ function init() {
                 return acc + (isCorrectAnswer(userAnswers[i], q.answer) ? 1 : 0);
             }, 0);
 
-            scoreEl.textContent = `${score} / ${qs.length}`;
+            scoreEl.textContent = `${userNickname}: ${score} / ${qs.length}`;
             feedbackEl.textContent = score >= Math.ceil(qs.length * 0.7) ? "Excellent!" : score >= Math.ceil(qs.length * 0.5) ? "Can do better" : "Keep practicing!";
             resultsDiv.classList.remove('hidden');
             nextBtn.style.display = 'none';
@@ -459,4 +325,4 @@ function init() {
     saveState();
 }
 
-init();
+init()

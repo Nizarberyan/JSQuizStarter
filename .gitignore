@@ -1,3 +1,4 @@
 .idea
 .gitignore
 .gitattributes
+node_modules

@@ -18,10 +18,10 @@
         <p>
             Challenge yourself with our interactive quiz. Answer the questions, get your score, and see how fast you can finish!
         </p>
-        <div class="quiz-list">
-            <a href="quiz.html?quiz=0" class="start-btn">Start: Web Dev Fundamentals</a>
-            <a href="quiz.html?quiz=1" class="start-btn">Start: JavaScript Basics</a>
-            <a href="quiz.html?quiz=2" class="start-btn">Start: CSS Essentials</a>
+        <div class="nickname-form" id="nickname-form">
+            <label for="nickname">Enter your nickname:</label>
+            <input type="text" id="nickname" placeholder="Your nickname" maxlength="20" required>
+            <button type="button" id="submit-nickname" disabled>Continue</button>
         </div>
     </section>
 </main>
@@ -29,5 +29,25 @@
 <footer>
     <p>&copy; 2025 JSQuizStarter Project</p>
 </footer>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const nicknameInput = document.getElementById('nickname');
+    const submitBtn = document.getElementById('submit-nickname');
+    
+    if (!nicknameInput || !submitBtn) return;
+    
+    nicknameInput.addEventListener('input', () => {
+      const nickname = nicknameInput.value.trim();
+      submitBtn.disabled = nickname.length < 2;
+    });
+    
+    submitBtn.addEventListener('click', () => {
+      const nickname = nicknameInput.value.trim();
+      if (nickname.length >= 2) {
+        window.location.href = `quizzes.html?nickname=${encodeURIComponent(nickname)}`;
+      }
+    });
+  });
+</script>
 </body>
 </html>

@@ -1,0 +1,97 @@
+[
+  {
+    "question": "Which command is used to build a Docker image?",
+    "options": ["docker create", "docker build", "docker image", "docker compile"],
+    "answer": 1
+  },
+  {
+    "question": "What does the `-d` flag do in `docker run -d`?",
+    "options": ["Runs container in detached mode", "Deletes the container after exit", "Downloads image automatically", "Displays logs in real-time"],
+    "answer": 0
+  },
+  {
+    "question": "Which file is commonly used to define multi-container Docker applications?",
+    "options": ["Dockerfile", "docker-compose.yml", "containers.yaml", "docker-multi.json"],
+    "answer": 1
+  },
+  {
+    "question": "Select all valid Docker storage drivers:",
+    "options": ["aufs", "overlay2", "zfs", "nfs"],
+    "answer": [0, 1, 2]
+  },
+  {
+    "question": "Which command lists all running containers?",
+    "options": ["docker ps", "docker list", "docker containers", "docker show"],
+    "answer": 0
+  },
+  {
+    "question": "What does the `EXPOSE 80` instruction in a Dockerfile do?",
+    "options": [
+      "Opens port 80 on the host machine",
+      "Documents that the container listens on port 80",
+      "Forwards requests to port 80 automatically",
+      "Makes port 80 public by default"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which Docker command stops a running container?",
+    "options": ["docker pause", "docker stop", "docker kill", "docker end"],
+    "answer": 1
+  },
+  {
+    "question": "Select all instructions that can be used in a Dockerfile:",
+    "options": ["FROM", "RUN", "CMD", "COPY", "LAUNCH"],
+    "answer": [0, 1, 2, 3]
+  },
+  {
+    "question": "What is the default Docker network driver?",
+    "options": ["bridge", "host", "none", "overlay"],
+    "answer": 0
+  },
+  {
+    "question": "Which command removes all unused containers, networks, images, and optionally volumes?",
+    "options": ["docker rm -a", "docker prune", "docker system prune", "docker clean"],
+    "answer": 2
+  },
+  {
+    "question": "What is the difference between `docker run` and `docker start`?",
+    "options": [
+      "`docker run` creates and starts a new container, `docker start` restarts an existing one",
+      "`docker start` always builds a new image first",
+      "`docker run` only works with stopped containers",
+      "They are identical commands"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Select all ways to pass environment variables to a container:",
+    "options": [
+      "Using `-e` flag in `docker run`",
+      "Defining in Dockerfile with `ENV`",
+      "Using `--env-file` option",
+      "Editing container filesystem manually"
+    ],
+    "answer": [0, 1, 2]
+  },
+  {
+    "question": "What does `docker pull` do?",
+    "options": [
+      "Uploads an image to Docker Hub",
+      "Downloads an image from a registry",
+      "Builds an image from a Dockerfile",
+      "Removes an image from local storage"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which commands are used to manage Docker images? (Select all that apply)",
+    "options": ["docker images", "docker rmi", "docker save", "docker exec"],
+    "answer": [0, 1, 2]
+  },
+  {
+    "question": "Which isolation technology is primarily used by Docker on Linux?",
+    "options": ["KVM", "cgroups & namespaces", "VirtualBox", "VMware ESXi"],
+    "answer": 1
+  }
+]
