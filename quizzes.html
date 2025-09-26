@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Select Quiz - JS Quiz Starter</title>
+    <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+<header>
+    <h1>Choose Your Quiz</h1>
+    <p id="welcome-message">Welcome!</p>
+</header>
+
+<main>
+    <section class="landing">
+        <h2>Select a quiz to start:</h2>
+        <div class="quiz-list" id="quiz-list">
+            <!-- Quiz links will be generated dynamically -->
+        </div>
+        <div class="dashboard-link">
+            <a href="dashboard.html" class="start-btn">View Dashboard</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 JSQuizStarter Project</p>
+</footer>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const nickname = localStorage.getItem('currentUser');
+    
+    if (!nickname) {
+      window.location.href = 'index.html';
+      return;
+    }
+    
+    document.getElementById('welcome-message').textContent = `Welcome ${nickname}!`;
+    
+    const listEl = document.getElementById('quiz-list');
+    let topics = [];
+    
+    try {
+      const resp = await fetch('scripts/data/topics/manifest.json');
+      if (!resp.ok) throw new Error('Manifest not found');
+      const data = await resp.json();
+      topics = Array.isArray(data.topics) ? data.topics : [];
+    } catch (e) {
+      console.error(e);
+      topics = [
+        { id: 'html', title: 'Web Dev Fundamentals' },
+        { id: 'javascript', title: 'JavaScript Basics' },
+        { id: 'css', title: 'CSS Essentials' }
+      ];
+    }
+    
+    if (!topics.length) {
+      listEl.innerHTML = '<p>No quizzes available.</p>';
+      return;
+    }
+    
+    // Check for existing progress
+    const userProgress = getUserProgress(nickname);
+    
+    topics.forEach((t) => {
+      const a = document.createElement('a');
+      a.href = 'quiz.html';
+      a.className = 'start-btn';
+      a.onclick = () => {
+        localStorage.setItem('currentTopic', t.id);
+      };
+      
+      const hasProgress = userProgress[t.id];
+      if (hasProgress && !hasProgress.finished) {
+        a.textContent = `Resume: ${t.title || t.id}`;
+        a.classList.add('resume-btn');
+      } else if (hasProgress && hasProgress.finished) {
+        a.textContent = `Restart: ${t.title || t.id}`;
+        a.classList.add('completed-btn');
+      } else {
+        a.textContent = `Start: ${t.title || t.id}`;
+      }
+      
+      listEl.appendChild(a);
+    });
+    
+    function getUserProgress(nickname) {
+      try {
+        const progress = {};
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith(`quizProgress:${nickname}:`)) {
+            const topicId = key.split(':')[2];
+            const data = JSON.parse(localStorage.getItem(key));
+            progress[topicId] = data;
+          }
+        }
+        return progress;
+      } catch (e) {
+        console.error('Failed to get user progress:', e);
+        return {};
+      }
+    }
+  });
+</script>
+</body>
+</html>

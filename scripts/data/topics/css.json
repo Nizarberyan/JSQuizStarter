@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What does CSS stand for?",
+    "options": ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style System"],
+    "answer": 0
+  },
+  {
+    "question": "Which of the following are used for styling web pages?",
+    "options": ["HTML", "CSS", "JavaScript", "Sass"],
+    "answer": [1, 3]
+  },
+  {
+    "question": "Which property changes text color?",
+    "options": ["font-color", "text-color", "color", "foreground"],
+    "answer": 2
+  },
+  {
+    "question": "How do you select an element with id=main?",
+    "options": [".main", "#main", "main", "*[main]"],
+    "answer": 1
+  },
+  {
+    "question": "Which units are relative? (Select all that apply)",
+    "options": ["px", "em", "rem", "%"],
+    "answer": [1, 2, 3]
+  },
+  {
+    "question": "Which property creates space outside the border?",
+    "options": ["padding", "margin", "gap", "outline"],
+    "answer": 1
+  },
+  {
+    "question": "Which rule imports another CSS file?",
+    "options": ["@import", "@use", "@link", "@require"],
+    "answer": 0
+  },
+  {
+    "question": "What does the box-sizing: border-box do?",
+    "options": ["Adds a border by default", "Includes padding and border in element width/height", "Excludes margins from layout", "Resets box model"],
+    "answer": 1
+  },
+  {
+    "question": "Which properties control flex container direction and wrapping? (Select all that apply)",
+    "options": ["flex-direction", "flex-flow", "flex-basis", "flex-wrap"],
+    "answer": [0, 1, 3]
+  },
+  {
+    "question": "How do you center a block element horizontally?",
+    "options": ["margin-left: auto; margin-right: auto;", "text-align: center;", "justify-content: center;", "align-items: center;"],
+    "answer": 0
+  },
+  {
+    "question": "Which selector has the highest specificity?",
+    "options": ["Element", "Class", "ID", "Universal"],
+    "answer": 2
+  },
+  {
+    "question": "Which media query targets screens up to 600px wide?",
+    "options": ["@media (min-width: 600px)", "@media screen and (max-width: 600px)", "@media only mobile", "@media width <= 600"],
+    "answer": 1
+  }
+]

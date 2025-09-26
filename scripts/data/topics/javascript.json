@@ -1,0 +1,77 @@
+[
+  {
+    "question": "Which keyword creates a block-scoped variable?",
+    "options": ["var", "let", "const", "static"],
+    "answer": [1, 2]
+  },
+  {
+    "question": "What is the result of typeof null?",
+    "options": ["null", "object", "undefined", "number"],
+    "answer": 1
+  },
+  {
+    "question": "Which method adds an element to the end of an array?",
+    "options": ["push", "pop", "shift", "unshift"],
+    "answer": 0
+  },
+  {
+    "question": "Which comparison is strict equality?",
+    "options": ["==", "=", "===", "!=="],
+    "answer": 2
+  },
+  {
+    "question": "Select all truthy values: (Select all that apply)",
+    "options": ["0", "'0'", "[]", "''"],
+    "answer": [1, 2]
+  },
+  {
+    "question": "Which array method returns a new array with elements that pass a test?",
+    "options": ["map", "filter", "reduce", "forEach"],
+    "answer": 1
+  },
+  {
+    "question": "What does the spread operator (...) do in arrays?",
+    "options": ["Mutates the array", "Copies/expands iterable elements", "Joins arrays in place", "Sorts elements"],
+    "answer": 1
+  },
+  {
+    "question": "Which values are falsy in JavaScript? (Select all that apply)",
+    "options": ["0", "'false'", "null", "NaN", "[]"],
+    "answer": [0, 2, 3]
+  },
+  {
+    "question": "What does JSON.stringify do?",
+    "options": ["Parses JSON to object", "Converts a value to a JSON string", "Validates JSON", "Downloads JSON"],
+    "answer": 1
+  },
+  {
+    "question": "What keyword is used to handle errors in a block of code?",
+    "options": ["catch", "throw", "try", "finally"],
+    "answer": [0, 2, 3]
+  },
+  {
+    "question": "Which company originally developed JavaScript?",
+    "options": ["Netscape", "Microsoft", "Sun Microsystems", "Oracle"],
+    "answer": 0
+  },
+  {
+    "question": "Which is NOT a JavaScript data type?",
+    "options": ["Number", "Boolean", "Character", "Symbol"],
+    "answer": 2
+  },
+  {
+    "question": "Which symbols start a single-line comment in JavaScript?",
+    "options": ["//", "#", "&lt;!-- --&gt;", "/*"],
+    "answer": 0
+  },
+  {
+    "question": "Which methods convert a JSON string to a JavaScript object? (Select all that apply)",
+    "options": ["JSON.parse()", "JSON.stringify()", "eval()", "Object.fromJSON()"],
+    "answer": [0, 2]
+  },
+  {
+    "question": "How do you print 'Hello' to the browser console?",
+    "options": ["print('Hello')", "console.log('Hello')", "echo('Hello')"],
+    "answer": 1
+  }
+]

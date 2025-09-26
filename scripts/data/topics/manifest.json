@@ -1,0 +1,8 @@
+{
+  "topics": [
+    { "id": "html", "title": "HTML", "file": "scripts/data/topics/html.json" },
+    { "id": "css", "title": "CSS", "file": "scripts/data/topics/css.json" },
+    { "id": "javascript", "title": "JavaScript", "file": "scripts/data/topics/javascript.json" },
+    { "id": "docker", "title": "docker", "file": "scripts/data/topics/docker.json" }
+  ]
+}

@@ -44,7 +44,8 @@
     submitBtn.addEventListener('click', () => {
       const nickname = nicknameInput.value.trim();
       if (nickname.length >= 2) {
-        window.location.href = `quizzes.html?nickname=${encodeURIComponent(nickname)}`;
+        localStorage.setItem('currentUser', nickname);
+        window.location.href = 'quizzes.html';
       }
     });
   });

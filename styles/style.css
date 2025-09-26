@@ -223,6 +223,105 @@ main {
     box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
 }
 
+.resume-btn {
+    background: linear-gradient(135deg, var(--success), var(--success-600)) !important;
+    box-shadow: 0 4px 14px rgba(34, 197, 94, 0.3) !important;
+}
+
+.resume-btn:hover {
+    background: linear-gradient(135deg, var(--success-600), #15803d) !important;
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4) !important;
+}
+
+.completed-btn {
+    background: linear-gradient(135deg, var(--muted), #6b7280) !important;
+    box-shadow: 0 4px 14px rgba(156, 163, 175, 0.3) !important;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card, .chart-card, .leaderboard-card, .theme-stats-card, .actions-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.stat-card h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.stat-card span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.chart-card canvas {
+    max-height: 300px;
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.leaderboard-item:last-child {
+    border-bottom: none;
+}
+
+.theme-stat {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.theme-stat:last-child {
+    border-bottom: none;
+}
+
+.actions-card button {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    padding: 0.5rem 1rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.actions-card button:hover {
+    background: var(--primary-600);
+}
+
+.dashboard-link {
+    text-align: center;
+    margin-top: 2rem;
+}
+
 
 footer {
     text-align: center;
